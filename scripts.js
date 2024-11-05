@@ -29,6 +29,24 @@ console.log(sortedProvinces) //logs provinces in alphabetical order
 const nonCapeProvinces = provinces.filter(province => !province.includes("Cape"))
 console.log(nonCapeProvinces) //logs provinces without the word "Cape"
 
+//exercise 6 - Finding 'S' determine if name contains letter 'S'
+const nameWithS = names.map((name) => {
+  return name.includes("S");
+} )
+console.log(nameWithS) //returns boolean array - if the name contains 'S' it will be true else false 
+
+/*ASK JOSHUA about this
+const nameWithS = names.map((name) => {
+    return name.split('').some((char) => char === 'S');
+});
+console.log(nameWithS)*/
+
+//exercise 7 - creating object mapping
+const namesToProvincesMap = names.reduce((acc, name, index) => {
+  acc[name] = provinces[index];
+  return acc;
+}, {});
+console.log(namesToProvincesMap);
 
 
 // A list of products with prices:
