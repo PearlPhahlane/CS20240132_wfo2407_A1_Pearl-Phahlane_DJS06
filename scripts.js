@@ -58,3 +58,8 @@ const products = [
   { product: 'coffee', price: 10 },
   { product: 'tea', price: '' },
 ]
+
+//Advanced exercises (Single 'console.log' execution)
+
+// log products
+console.log(products.map(product => product.product))
