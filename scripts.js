@@ -7,13 +7,22 @@ const names = ['Ashwin', 'Sibongile', 'Jan-Hendrik', 'Sifso', 'Shailen', 'Frikki
 //exercise 1 - forEach Basics:
 provinces.forEach((province, index) => {
   const name = names[index];
-  console.log(name, province);
+  console.log(name, province); //logs name and 
 });
 //Ask Joshua- should Province be in brackets? e.g Ashwin (WesternCape)?
 
 //exercise 2 - Uppercase Transformation: 
 const uppercasedProvinces = provinces.map(province => province.toUpperCase())
 console.log(uppercasedProvinces);
+
+//exercise 3 - Name Lengths:
+const nameLength = names.map(name => name.length)
+console.log(nameLength)
+
+
+//exercise 4 - Sort Provinces in Alphabetical order 
+const sortedProvinces = provinces.sort()
+console.log(sortedProvinces)
 
 
 // A list of products with prices:
