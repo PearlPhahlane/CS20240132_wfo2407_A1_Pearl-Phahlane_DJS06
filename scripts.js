@@ -4,6 +4,14 @@ const provinces = ['Western Cape', 'Gauteng', 'Northern Cape', 'Eastern Cape', '
 // A list of names:
 const names = ['Ashwin', 'Sibongile', 'Jan-Hendrik', 'Sifso', 'Shailen', 'Frikkie']
 
+//exercise 1:
+provinces.forEach((province, index) => {
+  const name = names[index];
+  console.log(name, province);
+});
+//Ask Joshua- should Province be in brackets? e.g Ashwin (WesternCape)?
+
+
 // A list of products with prices:
 const products = [
   { product: 'banana', price: "2" },
