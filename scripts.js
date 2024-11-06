@@ -98,12 +98,14 @@ console.log(
 
 //Object transformation
 console.log(
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   Object.entries(products).reduce((acc, [_, product]) => {
-    const { product: name, price} = product;
+    //The underscore (_) is a common convention in JavaScript when we want to ignore a value that is required syntactically but isn’t used.
+    const { product: name, price } = product;
 
-    acc.push ({
-      name, 
-      cost: parseFloat(price) || 0
+    acc.push({
+      name,
+      cost: parseFloat(price) || 0,
     });
     return acc;
   }, [])
