@@ -7,7 +7,7 @@ const names = ['Ashwin', 'Sibongile', 'Jan-Hendrik', 'Sifso', 'Shailen', 'Frikki
 //exercise 1 - forEach Basics:
 provinces.forEach((province, index) => {
   const name = names[index];
-  console.log(name, province); //logs name and province as "Name, Province"
+  console.log(name, `(${province})`); //logs name and province as "Name, Province"
 });
 //Ask Joshua- should Province be in brackets? e.g Ashwin (WesternCape)?
 
