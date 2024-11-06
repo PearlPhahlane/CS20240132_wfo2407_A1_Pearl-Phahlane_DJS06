@@ -109,4 +109,4 @@ console.log(
     });
     return acc;
   }, [])
-);
+); //logs new array with name and cost as properties and not product and price
