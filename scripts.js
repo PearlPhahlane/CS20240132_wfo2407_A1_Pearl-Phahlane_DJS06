@@ -62,7 +62,7 @@ const products = [
 //Advanced exercises (Single 'console.log' execution)
 
 // log products
-console.log(products.map(product => product.product))
+console.log(products.map(product => product.product));
 
 //filter by name length
 console.log(products.filter((product) => product.product.length <= 5)); //logs product names that are <= 5 characters
@@ -75,5 +75,8 @@ console.log(
     price: parseFloat(product.price) || 0 //convert "price" to a number or set 0 to empty strings
   }))
   .reduce((acc, product) => acc + product.price, 0) //logs the total price
-)
+);
 
+
+//Concatenate Product Names
+console.log(`"${products.reduce((acc, product) => acc + " " + product.product, " ").trim()}"`); 
