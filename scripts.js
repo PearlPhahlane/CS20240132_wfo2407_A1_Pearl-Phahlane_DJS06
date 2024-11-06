@@ -65,4 +65,7 @@ const products = [
 console.log(products.map(product => product.product))
 
 //filter by name length
-console.log(products.filter((product) => product.product.length <= 5));
+console.log(products.filter((product) => product.product.length <= 5)); //logs product names that are <= 5 characters
+
+
+
