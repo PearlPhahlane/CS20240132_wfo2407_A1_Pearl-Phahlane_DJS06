@@ -95,3 +95,16 @@ console.log(
       { Highest: -Infinity, Lowest: Infinity } // Initialize with extreme values
     )
 );
+
+//Object transformation
+console.log(
+  Object.entries(products).reduce((acc, [_, product]) => {
+    const { product: name, price} = product;
+
+    acc.push ({
+      name, 
+      cost: parseFloat(price) || 0
+    });
+    return acc;
+  }, [])
+);
