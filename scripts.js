@@ -67,5 +67,13 @@ console.log(products.map(product => product.product))
 //filter by name length
 console.log(products.filter((product) => product.product.length <= 5)); //logs product names that are <= 5 characters
 
-
+//Price Manipulation
+console.log(
+  products
+  .filter((product => product.price !== "")) //filter out products without prices
+  .map(product => ({...product, //to keep other properties as they are
+    price: parseFloat(product.price) || 0 //convert "price" to a number or set 0 to empty strings
+  }))
+  .reduce((acc, product) => acc + product.price, 0) //logs the total price
+)
 
