@@ -79,4 +79,19 @@ console.log(
 
 
 //Concatenate Product Names
-console.log(`"${products.reduce((acc, product) => acc + " " + product.product, " ").trim()}"`); 
+console.log(`"${products.reduce((acc, product) => acc + " " + product.product, " ").trim()}"`); //logs single string of product names 
+
+//Find extremes in Prices 
+console.log(
+  products
+    .filter(product => product.price !== "") // Exclude products without valid prices
+    .map(product => ({ ...product, price: parseFloat(product.price) || 0 })) // Convert prices to numbers
+    .reduce(
+      (acc, product) => {
+        acc.Highest = Math.max(acc.Highest, product.price);  // Find the highest price
+        acc.Lowest = Math.min(acc.Lowest, product.price);    // Find the lowest price
+        return acc;
+      },
+      { Highest: -Infinity, Lowest: Infinity } // Initialize with extreme values
+    )
+);
