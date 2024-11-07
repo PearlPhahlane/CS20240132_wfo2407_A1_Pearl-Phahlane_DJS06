@@ -5,11 +5,14 @@ const provinces = ['Western Cape', 'Gauteng', 'Northern Cape', 'Eastern Cape', '
 const names = ['Ashwin', 'Sibongile', 'Jan-Hendrik', 'Sifso', 'Shailen', 'Frikkie']
 
 //exercise 1 - forEach Basics:
-provinces.forEach((province, index) => {
-  const name = names[index];
-  console.log(name, `(${province})`); //logs name and province as "Name, Province"
-});
-//Ask Joshua- should Province be in brackets? e.g Ashwin (WesternCape)?
+//log each name and each province separately
+names.forEach(name => console.log(name)); //logs each name 
+provinces.forEach(province => console.log(province)); //logs each province
+
+names.forEach((name, index) => {
+  console.log(`${name} (${provinces[index]})`);
+}); //logs names with matching provinces in the format "Name (Province)"
+
 
 //exercise 2 - Uppercase Transformation: 
 const uppercasedProvinces = provinces.map(province => province.toUpperCase())
@@ -27,26 +30,20 @@ console.log(sortedProvinces) //logs provinces in alphabetical order
 
 //exercise 5 - filter to remove provinces containing "Cape" 
 const nonCapeProvinces = provinces.filter(province => !province.includes("Cape"))
-console.log(nonCapeProvinces) //logs provinces without the word "Cape"
+console.log(nonCapeProvinces.length) //logs the count for provinces without the word "Cape"
 
 //exercise 6 - Finding 'S' determine if name contains letter 'S'
 const nameWithS = names.map((name) => {
-  return name.includes("S");
-} )
-console.log(nameWithS) //returns boolean array - if the name contains 'S' it will be true else false 
-
-/*ASK JOSHUA about this
-const nameWithS = names.map((name) => {
     return name.split('').some((char) => char === 'S');
 });
-console.log(nameWithS)*/
+console.log(nameWithS) //logs boolean array- displays true for name containing 's' else false
 
-//exercise 7 - creating object mapping
+//exercise 7 - creating object mapping Jan-Hendrik has ' ' - fix also make sure it is an object 
 const namesToProvincesMap = names.reduce((acc, name, index) => {
   acc[name] = provinces[index];
   return acc;
 }, {});
-console.log(namesToProvincesMap);
+console.log(namesToProvincesMap); //logs an object mapping names to their respective provinces
 
 
 // A list of products with prices:
@@ -61,13 +58,13 @@ const products = [
 
 //Advanced exercises (Single 'console.log' execution)
 
-// log products
-console.log(products.map(product => product.product));
+//Exercise 1 - log products
+console.log(products.map(product => product.product)); //logs an array of each product name 
 
-//filter by name length
-console.log(products.filter((product) => product.product.length <= 5)); //logs product names that are <= 5 characters
+//Exercise 2 - filter by name length
+console.log(products.filter((product) => product.product.length <= 5)); //logs product properties that are <= 5 characters
 
-//Price Manipulation
+//Exercise 3 - price manipulation
 console.log(
   products
   .filter((product => product.price !== "")) //filter out products without prices
@@ -78,35 +75,16 @@ console.log(
 );
 
 
-//Concatenate Product Names
+//Exercise 4 - concatenate product names
 console.log(`"${products.reduce((acc, product) => acc + " " + product.product, " ").trim()}"`); //logs single string of product names 
 
-//Find extremes in Prices 
+//Exercise 5 - Find extremes in Prices 
 console.log(
-  products
-    .filter(product => product.price !== "") // Exclude products without valid prices
-    .map(product => ({ ...product, price: parseFloat(product.price) || 0 })) // Convert prices to numbers
-    .reduce(
-      (acc, product) => {
-        acc.Highest = Math.max(acc.Highest, product.price);  // Find the highest price
-        acc.Lowest = Math.min(acc.Lowest, product.price);    // Find the lowest price
-        return acc;
-      },
-      { Highest: -Infinity, Lowest: Infinity } // Initialize with extreme values
-    )
+  
 );
+
 
 //Object transformation
 console.log(
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
-  Object.entries(products).reduce((acc, [_, product]) => {
-    //The underscore (_) is a common convention in JavaScript when we want to ignore a value that is required syntactically but isn’t used.
-    const { product: name, price } = product;
-
-    acc.push({
-      name,
-      cost: parseFloat(price) || 0,
-    });
-    return acc;
-  }, [])
+ 
 ); //logs new array with name and cost as properties and not product and price
