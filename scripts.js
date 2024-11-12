@@ -38,7 +38,7 @@ const nameWithS = names.map((name) => {
 });
 console.log(nameWithS) //logs boolean array- displays true for name containing 's' else false
 
-//exercise 7 - creating object mapping Jan-Hendrik has ' ' - fix also make sure it is an object 
+//exercise 7 - creating object mapping 
 const namesToProvincesMap = names.reduce((acc, name, index) => {
   acc[name] = provinces[index];
   return acc;
@@ -80,11 +80,25 @@ console.log(`"${products.reduce((acc, product) => acc + " " + product.product, "
 
 //Exercise 5 - Find extremes in Prices 
 console.log(
-  
-);
+  `Highest: ${products.reduce((acc, product) => {
+    const price = typeof product.price === 'string' && product.price.trim() !== '' ? Number(product.price) : (product.price || 0);
+    return price > acc ? price : acc;
+  }, -Infinity)}. Lowest: ${products.reduce((acc, product) => {
+    const price = typeof product.price === 'string' && product.price.trim() !== '' ? Number(product.price) : (product.price || 0);
+    return price < acc ? price : acc;
+  }, 0)}.`
+); //logs the highest and lowest price as:  Highest: 10. Lowest: 0.
 
 
 //Object transformation
 console.log(
- 
+  products.reduce((acc, curr) => [
+    ...acc,
+    Object.entries(curr).reduce((obj, [key, value]) => ({
+      ...obj,
+      [key === 'product' ? 'name' : 'cost']: key === 'price' 
+        ? (value === ' ' || value === '' ? 0 : Number(value))
+        : value
+    }), {})
+  ], [])
 ); //logs new array with name and cost as properties and not product and price
